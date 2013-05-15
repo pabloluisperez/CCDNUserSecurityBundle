@@ -105,6 +105,24 @@ class LoginFailureHandler implements AuthenticationFailureHandlerInterface
 
             $ipAddress = $request->getClientIp();
 
+            $attempts = $this->loginFailureTracker->getAttempts($session, $ipAddress);
+            
+            if(count($attempts)>=3){
+                     $response = new Response(
+				json_encode(
+					array(
+						'status' => 'failed',
+						'errors' => array('Espere 10 minutos para volver a intentar loguear.')
+					)
+				)
+			);
+			
+            $response->headers->set('Content-Type', 'application/json');
+			
+            return $response;
+                
+                }
+            
             // Make a note of the failed login.
             $this->loginFailureTracker->addAttempt($session, $ipAddress, $username);
 
@@ -116,7 +134,7 @@ class LoginFailureHandler implements AuthenticationFailureHandlerInterface
 				json_encode(
 					array(
 						'status' => 'failed',
-						'errors' => array($exception->getMessage())
+						'errors' => array($exception->getMessage() . ' ('.(count($attempts)+1).' de 3 intentos)')
 					)
 				)
 			);

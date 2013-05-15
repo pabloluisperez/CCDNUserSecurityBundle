@@ -61,7 +61,12 @@ services:
 
     ccdn_user_security.component.authentication.handler.login_success_handler:
         class: %ccdn_user_security.component.authentication.handler.login_success_handler.class%
-        arguments: []
+        arguments:
+            - @router
+            - @ccdn_user_security.component.authentication.tracker.login_failure_tracker
+            - %ccdn_user_security.login_shield.enable_shield%
+            - %ccdn_user_security.login_shield.primary_login_route.name%
+            - %ccdn_user_security.login_shield.primary_login_route.params%
         tags:
             - { name: 'monolog.logger', channel: 'security' }
 
