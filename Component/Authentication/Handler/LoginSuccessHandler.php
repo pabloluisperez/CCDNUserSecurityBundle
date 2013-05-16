@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 use CCDNUser\SecurityBundle\Component\Authentication\Tracker\LoginFailureTracker;
 
