@@ -1,14 +1,14 @@
 {
-    "name": "codeconsortium/ccdn-user-security-bundle",
+    "name": "pabloluisperez/ccdn-user-security-bundle",
     "type": "symfony-bundle",
     "description": "CCDN User Security Bundle",
     "keywords": ["ccdn", "codeconsortium", "user", "security", "brute force", "dictionary attack", "login"],
-    "homepage": "http://github.com/codeconsortium/CCDNUserSecurityBundle",
+    "homepage": "http://github.com/pabloluisperez/CCDNUserSecurityBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "reecefowell",
-            "email": "reece@codeconsortium.com"
+            "name": "pablo",
+            "email": "pabloluisperez@gmail.com"
         }
     ],
     "require": {
